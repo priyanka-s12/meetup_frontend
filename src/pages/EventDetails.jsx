@@ -24,7 +24,11 @@ const EventDetails = () => {
             <h2 className="mb-3">{eventData?.eventTitle}</h2>
             <h6 className="text-body-secondary">Hosted By:</h6>
             <h5 className="mb-5">{eventData?.eventHostedBy}</h5>
-            <img src={eventData?.coverImageUrl} className="w-75 mb-3" />
+            <img
+              src={eventData?.coverImageUrl}
+              className="w-75 mb-3 img-fluid"
+              alt={`${eventData?.eventTitle} cover image`}
+            />
 
             <h3 className="mb-3">Details: </h3>
             <p>{eventData?.eventDescription}</p>
@@ -41,9 +45,13 @@ const EventDetails = () => {
 
             <h3 className="mb-3">Event Tags: </h3>
             {eventData?.eventTags.map((tag) => (
-              <button className="btn btn-danger me-2">{tag}</button>
+              <button className="btn btn-danger me-2" key={tag}>
+                {tag}
+              </button>
             ))}
           </div>
+
+          {/* {console.log(eventData?.eventTags.map((tag) => tag.toLowerCase()))} */}
 
           {/* right col */}
           <div className="col-md-4 p-3">
@@ -93,13 +101,13 @@ const EventDetails = () => {
             </h3>
             <div className="row">
               {eventData?.speakers.map((speaker) => (
-                <div className="col-md-6 mb-3">
+                <div className="col-md-6 mb-3 p-3">
                   <div className="d-flex justify-content-between">
                     <div className="card">
                       <div className="card-body text-center">
                         <img
                           src={speaker.profileImgUrl}
-                          className="rounded-circle mb-3"
+                          className="rounded-circle mb-3 img-fluid"
                         />
                         <h6>{speaker.name}</h6>
                         <p>{speaker.designation}</p>

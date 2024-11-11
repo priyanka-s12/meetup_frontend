@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
-const Header = () => {
+import { useState } from 'react';
+
+const Header = ({ setSquery }) => {
+  //as include() is case-sensitive and user may type in lowercase so use toLowerCase()
   return (
     <header>
       <div className="container d-flex justify-content-between">
@@ -13,9 +16,10 @@ const Header = () => {
         </Link>
         <div>
           <input
-            type="search"
+            type="text"
             placeholder="Search by title and tags..."
             className="form-control mt-3"
+            onChange={(event) => setSquery(event.target.value.toLowerCase())}
           />
         </div>
       </div>
