@@ -7,7 +7,10 @@ const EventsList = ({ query }) => {
   const [selectedType, setSelectedType] = useState('Both');
   const eventTypes = ['Both', 'Online', 'Offline'];
 
-  const { data, loading, error } = useFetch('http://localhost:3000/events');
+  // const { data, loading, error } = useFetch('http://localhost:3000/events');
+  const { data, loading, error } = useFetch(
+    'https://meetup-backend-chi.vercel.app/events'
+  );
   //   console.log(data);
   console.log(query);
 

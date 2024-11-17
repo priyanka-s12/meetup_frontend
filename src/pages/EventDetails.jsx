@@ -5,7 +5,10 @@ import useFetch from '../useFetch';
 import dateFormat from 'dateformat';
 
 const EventDetails = () => {
-  const { data, loading, error } = useFetch('http://localhost:3000/events');
+  // const { data, loading, error } = useFetch('http://localhost:3000/events');
+  const { data, loading, error } = useFetch(
+    'https://meetup-backend-chi.vercel.app/events'
+  );
   const eventId = useParams();
 
   //   console.log(data);
