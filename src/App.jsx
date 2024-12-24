@@ -5,7 +5,6 @@ import { useState } from 'react';
 function App() {
   const [query, setSquery] = useState('');
 
-  //lifting up the state
   return (
     <div className="bg-body-tertiary py-3">
       <Header setSquery={setSquery} />
