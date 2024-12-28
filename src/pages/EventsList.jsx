@@ -7,19 +7,11 @@ const EventsList = ({ query }) => {
   const [selectedType, setSelectedType] = useState('Both');
   const eventTypes = ['Both', 'Online', 'Offline'];
 
-  // const { data, loading, error } = useFetch('http://localhost:3000/events');
   const { data, loading, error } = useFetch(
     'https://meetup-backend-chi.vercel.app/events'
   );
-  //   console.log(data);
-  console.log(query);
+  console.log(data);
 
-  //   const filteredEvent =
-  //     selectedType === 'Both'
-  //       ? data
-  //       : data?.filter((event) => event.eventType === selectedType);
-
-  //both ways of filtering works - includes and ===
   const filteredEvent =
     selectedType === 'Both'
       ? data
@@ -72,7 +64,7 @@ const EventsList = ({ query }) => {
                       style={{ height: '300px' }}
                       alt={`${event.eventTitle} cover image`}
                     />
-                    <span class="badge text-bg-info position-absolute top-0 start-0 m-3 px-3">
+                    <span className="badge text-bg-info position-absolute top-0 start-0 m-3 px-3">
                       {event.eventType}
                     </span>
                   </div>
